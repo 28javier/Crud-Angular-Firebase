@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "empleados-8779b": {
+      "hosting": {
+        "empleadosFirebase": [
+          "empleados-8779b"
+        ]
+      }
+    }
+  }
+}

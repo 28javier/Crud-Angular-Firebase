@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center shadow mb-5 rounded">
+                <div class="card-body">
+                    <h3>{{titulo}}
+                        <div *ngIf="loading" class="spinner-border float-end" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </h3>
+                    <form class="mt-4" [formGroup]="miFormulario" (ngSubmit)="agregarEditarEmpleado()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" id="" placeholder="Agregar Nombre" formControlName="nombre">
+                                <span *ngIf="campoEsValido('nombre')" class="badge bg-danger float-start mt-1">El nombre es Obligatorio</span>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" id="" placeholder="Agregar Apellido" formControlName="apellido">
+                                <span *ngIf="campoEsValido('apellido')" class="badge bg-danger float-start mt-1">El apellido es Obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" placeholder="Ingresar Documento" formControlName="documento">
+                                <span *ngIf="campoEsValido('documento')" class="badge bg-danger float-start mt-1">El documento es Obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input type="number" class="form-control form-control-lg" placeholder="Ingresar Salario" formControlName="salario">
+                                <span *ngIf="campoEsValido('salario')" class="badge bg-danger float-start mt-1">El salario es Obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-danger float-start" routerLink="/empleados">Cancelar</button>
+                            <button type="submit" class="btn btn-primary float-end" [disabled]="miFormulario.invalid">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
